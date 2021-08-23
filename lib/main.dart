@@ -30,6 +30,7 @@ class _AppState extends State<App> {
           backgroundColor: Colors.red,
           shadowColor: Colors.transparent,
         ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
     );
   }
