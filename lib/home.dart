@@ -28,6 +28,7 @@ class _homeScreenState extends State<homeScreen> {
               const SizedBox(height: 48.0),
               _temperatureDetails(),
               const SizedBox(height: 48.0),
+              _extraWeatherDetails(),
             ],
           ),
         ),
@@ -95,6 +96,32 @@ class _homeScreenState extends State<homeScreen> {
                     color: Colors.white,
                   ),
             ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Row _extraWeatherDetails() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Column(
+          children: [
+            Icon(Icons.wb_sunny),
+            Text("3 m/s"),
+          ],
+        ),
+        Column(
+          children: [
+            Icon(Icons.wb_sunny),
+            Text("717 mm of merc."),
+          ],
+        ),
+        Column(
+          children: [
+            Icon(Icons.wb_sunny),
+            Text("69%"),
           ],
         ),
       ],
