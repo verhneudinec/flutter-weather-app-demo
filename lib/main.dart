@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reborn_demo/home.dart';
+import 'package:reborn_demo/settings.dart';
 
 void main() {
   runApp(
@@ -24,14 +25,17 @@ class _AppState extends State<App> {
       home: homeScreen(),
       theme: ThemeData(
         brightness: Brightness.dark,
-        backgroundColor: Colors.pink,
-        scaffoldBackgroundColor: Colors.red,
+        scaffoldBackgroundColor: Colors.black87,
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.black87,
           shadowColor: Colors.transparent,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      initialRoute: '/',
+      routes: {
+        '/settings': (context) => SettingsScreen(),
+      },
     );
   }
 }

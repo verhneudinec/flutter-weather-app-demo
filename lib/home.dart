@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:reborn_demo/settings.dart';
 
 class homeScreen extends StatefulWidget {
   const homeScreen({Key key}) : super(key: key);
@@ -14,6 +15,19 @@ class _homeScreenState extends State<homeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Weather forecast"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              // Route route = MaterialPageRoute(
+              //   builder: (context) => SettingsScreen(),
+              // );
+              // Navigator.of(context).push(route);
+
+              Navigator.pushNamed(context, '/settings');
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(
