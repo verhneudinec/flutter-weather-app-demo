@@ -29,6 +29,8 @@ class _homeScreenState extends State<homeScreen> {
               _temperatureDetails(),
               const SizedBox(height: 48.0),
               _extraWeatherDetails(),
+              const SizedBox(height: 48.0),
+              _weekWeather(),
             ],
           ),
         ),
@@ -85,7 +87,7 @@ class _homeScreenState extends State<homeScreen> {
         Column(
           children: [
             Text(
-              "14 C",
+              "36 C",
               style: Theme.of(context).textTheme.headline4.copyWith(
                     color: Colors.white,
                   ),
@@ -124,6 +126,58 @@ class _homeScreenState extends State<homeScreen> {
             Text("69%"),
           ],
         ),
+      ],
+    );
+  }
+
+  Widget _weekWeather() {
+    return Column(
+      children: [
+        Text(
+          "Weather for the week".toUpperCase(),
+          style: Theme.of(context).textTheme.headline6.copyWith(
+                fontWeight: FontWeight.w300,
+              ),
+        ),
+        LimitedBox(
+          maxHeight: 100,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              for (int i = 0; i < 6; i++)
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 16.0,
+                    right: 16.0,
+                  ),
+                  width: 100.0,
+                  height: 80.0,
+                  color: Colors.white.withOpacity(0.1),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Test"),
+                      const SizedBox(
+                        height: 8.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("27 C"),
+                          const SizedBox(
+                            width: 16.0,
+                          ),
+                          Icon(
+                            Icons.wb_cloudy,
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        )
       ],
     );
   }
