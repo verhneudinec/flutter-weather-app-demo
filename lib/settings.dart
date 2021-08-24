@@ -12,6 +12,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final RouteSettings routeSettings = ModalRoute.of(context).settings;
+    final stringFromPushNamed = routeSettings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Settings"),
@@ -21,6 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           horizontal: 16.0,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,7 +45,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                 ),
               ],
-            )
+            ),
+            const Divider(),
+            Text(stringFromPushNamed),
           ],
         ),
       ),

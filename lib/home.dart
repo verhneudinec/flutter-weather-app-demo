@@ -24,7 +24,11 @@ class _homeScreenState extends State<homeScreen> {
               // );
               // Navigator.of(context).push(route);
 
-              Navigator.pushNamed(context, '/settings');
+              Navigator.pushNamed(
+                context,
+                '/settings',
+                arguments: "test string from pushNamed",
+              );
             },
           ),
         ],
