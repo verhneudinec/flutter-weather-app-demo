@@ -10,6 +10,8 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
+  String gradeDropdownValue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,16 +21,7 @@ class _homeScreenState extends State<homeScreen> {
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {
-              // Route route = MaterialPageRoute(
-              //   builder: (context) => SettingsScreen(),
-              // );
-              // Navigator.of(context).push(route);
-
-              Navigator.pushNamed(
-                context,
-                '/settings',
-                arguments: "test string from pushNamed",
-              );
+              _returnDataFromSettingsScreen(context);
             },
           ),
         ],
@@ -105,7 +98,7 @@ class _homeScreenState extends State<homeScreen> {
         Column(
           children: [
             Text(
-              "36 C",
+              "36 $gradeDropdownValue",
               style: Theme.of(context).textTheme.headline4.copyWith(
                     color: Colors.white,
                   ),
@@ -198,5 +191,22 @@ class _homeScreenState extends State<homeScreen> {
         )
       ],
     );
+  }
+
+  void _returnDataFromSettingsScreen(BuildContext context) async {
+    // Route route = MaterialPageRoute(
+    //   builder: (context) => SettingsScreen(),
+    // );
+    // Navigator.of(context).push(route);
+
+    final navigatorResult = await Navigator.pushNamed(
+      context,
+      '/settings',
+      arguments: "test string from pushNamed",
+    );
+
+    setState(() {
+      gradeDropdownValue = navigatorResult;
+    });
   }
 }
